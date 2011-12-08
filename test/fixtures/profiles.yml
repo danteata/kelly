@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fName: MyString
+  oName: MyString
+  lName: MyString
+  dob: 2011-12-07
+  dateEmployed: 2011-12-07
+  empId: 1
+  gender: MyString
+
+two:
+  fName: MyString
+  oName: MyString
+  lName: MyString
+  dob: 2011-12-07
+  dateEmployed: 2011-12-07
+  empId: 1
+  gender: MyString
