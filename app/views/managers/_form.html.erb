@@ -3,17 +3,17 @@
   <br/>
 
   <div class="field">
-    <%= f.fields_for :profile do |builder| %>
-      <%= builder.label :fName %>
-      <%= builder.text_field :fName %>
+    <%= f.fields_for :profile do |profile_builder| %>
+      <%=profile_builder.label :fName %>
+      <%= profile_builder.text_field :fName %>
 
   <br/>
-      <%= builder.label :oName %>
-      <%= builder.text_field :oName %>
+      <%= profile_builder.label :oName %>
+      <%= profile_builder.text_field :oName %>
 
   <br/>
-      <%= builder.label :lName %>
-      <%= builder.text_field :lName %>
+      <%= profile_builder.label :lName %>
+      <%= profile_builder.text_field :lName %>
     <% end -%>
   </div>
 
@@ -33,12 +33,30 @@
   <br/>
 
   <div class="field">
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
+    <%= f.fields_for :image do |image_builder| %>
+      <%= image_builder.label :file %>
+      <%= image_builder.file_field :file %>
+    <% end -%>
   </div>
 
   <br/>
 
+  <div class="field">
+    <%= f.fields_for :contact do |contact_builder| %>
+      <%=contact_builder.label :email %>
+      <%= contact_builder.text_field :email %>
+
+  <br/>
+      <%= contact_builder.label :phone_no %>
+      <%= contact_builder.text_field :phone_no %>
+
+  <br/>
+      <%= contact_builder.label :home %>
+      <%= contact_builder.text_field :home %>
+    <% end -%>
+  </div>
+
+  <br/>
   <div class="field">
     <%= f.submit "Register" %>
   </div>
