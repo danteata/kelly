@@ -6,16 +6,16 @@ class DriversController < ApplicationController
   end
 
   def show
-    @driver = driver.find(params[:id])
+    @driver = Driver.find(params[:id])
   end
 
   def edit
-    @driver = driver.find(params[:id])
+    @driver = Driver.find(params[:id])
   end
 
   def update
 
-    @driver = driver.find(params[:id])
+    @driver = Driver.find(params[:id])
 
     if @driver.update_attributes(params[:driver])
       flash[:success] = "Your details have been updated"

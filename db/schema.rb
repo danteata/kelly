@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208025116) do
+ActiveRecord::Schema.define(:version => 20111208111607) do
 
   create_table "contacts", :force => true do |t|
     t.string   "phone"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20111208025116) do
     t.string   "home"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
   end
 
   create_table "drivers", :force => true do |t|
@@ -26,10 +28,6 @@ ActiveRecord::Schema.define(:version => 20111208025116) do
     t.integer  "supervisor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "equipment", :force => true do |t|
@@ -44,15 +42,25 @@ ActiveRecord::Schema.define(:version => 20111208025116) do
     t.datetime "updated_at"
   end
 
+  create_table "images", :force => true do |t|
+    t.string   "name"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  add_index "images", ["imageable_id"], :name => "index_images_on_imageable_id"
+
   create_table "managers", :force => true do |t|
     t.string   "password_digest"
     t.string   "user_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "profiles", :force => true do |t|
@@ -65,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20111208025116) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profileable_id"
+    t.string   "profileable_type"
   end
 
   create_table "supervisors", :force => true do |t|

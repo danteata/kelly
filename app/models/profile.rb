@@ -5,4 +5,5 @@ class Profile < ActiveRecord::Base
   def full_name
     [fName, lName].join " "
   end
+
 end

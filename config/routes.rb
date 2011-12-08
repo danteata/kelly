@@ -1,5 +1,21 @@
 Kelly::Application.routes.draw do
 
+  get "profiles/new"
+
+  get "profiles/show"
+
+  get "profiles/index"
+
+  get "profiles/edit"
+
+  get "supervisors/new"
+
+  get "supervisors/edit"
+
+  get "supervisors/show"
+
+  get "supervisors/index"
+
   get "equipments/new"
 
   get "equipments/show"
