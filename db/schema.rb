@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207232418) do
+ActiveRecord::Schema.define(:version => 20111208025116) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "phone"
+    t.string   "email"
+    t.string   "home"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "drivers", :force => true do |t|
     t.integer  "equipment_id"
@@ -22,6 +30,18 @@ ActiveRecord::Schema.define(:version => 20111207232418) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "equipment", :force => true do |t|
+    t.string   "asset_code"
+    t.text     "description"
+    t.string   "asset_subclass"
+    t.string   "product_pin"
+    t.string   "model"
+    t.string   "registration_no"
+    t.integer  "num_of_tyres"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "managers", :force => true do |t|
@@ -43,6 +63,13 @@ ActiveRecord::Schema.define(:version => 20111207232418) do
     t.date     "dateEmployed"
     t.integer  "empId"
     t.string   "gender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supervisors", :force => true do |t|
+    t.string   "user_name"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

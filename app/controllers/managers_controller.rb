@@ -1,6 +1,8 @@
 class ManagersController < ApplicationController
+
   def new
     @manager = Manager.new
+    @profile = @manager.profile ||= Profile.new
   end
 
   def show
@@ -12,11 +14,12 @@ class ManagersController < ApplicationController
   end
 
   def update
+
     @manager = Manager.find(params[:id])
+
     if @manager.update_attributes(params[:manager])
       flash[:success] = "Your details have been updated"
       redirect_to @member
-
     else
       @title = "Edit Manager"
       render "edit"
@@ -40,4 +43,5 @@ class ManagersController < ApplicationController
     end
 
   end
+
 end

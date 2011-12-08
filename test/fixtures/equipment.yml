@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  asset_code: MyString
+  description: MyText
+  asset_subclass: MyString
+  product_pin: MyString
+  model: MyString
+  registration_no: MyString
+  num_of_tyres: 1
+
+two:
+  asset_code: MyString
+  description: MyText
+  asset_subclass: MyString
+  product_pin: MyString
+  model: MyString
+  registration_no: MyString
+  num_of_tyres: 1

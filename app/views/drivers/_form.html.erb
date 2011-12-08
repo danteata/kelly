@@ -1,0 +1,48 @@
+<%=form_for(@driver, :html => { :multipart => true }, :validate => true) do |f| %>
+
+  <br/>
+
+  <div class="field">
+    <%= f.fields_for :profile do |prof_builder| %>
+      <%= prof_builder.label :fName %>
+      <%= prof_builder.text_field :fName %>
+
+  <br/>
+      <%= prof_builder.label :oName %>
+      <%= prof_builder.text_field :oName %>
+
+  <br/>
+      <%= prof_builder.label :lName %>
+      <%= prof_builder.text_field :lName %>
+    <% end -%>
+  </div>
+
+  <br/>
+
+  <div class="field">
+    <%= f.fields_for :contact do |contact_builder| %>
+      <%= contact_builder.label :email %>
+      <%= contact_builder.text_field :email %>
+
+  <br/>
+      <%= contact_builder.label :phone_no %>
+      <%= contact_builder.text_field :phone_no %>
+
+  <br/>
+      <%= contact_builder.label :home %>
+      <%= contact_builder.text_field :home %>
+    <% end -%>
+  </div>
+
+  <br/>
+  <div class="field">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <br/>
+
+  <div class="field">
+    <%= f.submit "Register" %>
+  </div>
+<% end %>

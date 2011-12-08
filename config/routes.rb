@@ -1,4 +1,21 @@
 Kelly::Application.routes.draw do
+
+  get "equipments/new"
+
+  get "equipments/show"
+
+  get "equipments/edit"
+
+  get "equipments/index"
+
+  get "drivers/new"
+
+  get "drivers/edit"
+
+  get "drivers/show"
+
+  get "drivers/index"
+
   get "managers/new"
 
   get "managers/show"

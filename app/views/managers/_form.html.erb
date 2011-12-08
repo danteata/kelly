@@ -1,19 +1,30 @@
 <%=form_for(@manager, :html => { :multipart => true }, :validate => true) do |f| %>
+
+  <br/>
+
+  <div class="field">
+    <%= f.fields_for :profile do |builder| %>
+      <%= builder.label :fName %>
+      <%= builder.text_field :fName %>
+
+  <br/>
+      <%= builder.label :oName %>
+      <%= builder.text_field :oName %>
+
+  <br/>
+      <%= builder.label :lName %>
+      <%= builder.text_field :lName %>
+    <% end -%>
+  </div>
+
   <br/>
   <div class="field">
     <%= f.label :user_name %>
     <%= f.text_field :user_name %>
   </div>
-
   <br/>
-
-  <div class="field">
-    <%= f.label :profile.fName %>
-    <%= f.text_field :profile.fName %>
-  </div>
   <div class="field">
 
-  <br/>
 
     <%= f.label :password %>
     <%= f.password_field :password %>
