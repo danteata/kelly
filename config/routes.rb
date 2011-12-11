@@ -1,12 +1,12 @@
 Kelly::Application.routes.draw do
 
-  get "equipment/new"
+  get "fuel_managers/new"
 
-  get "equipment/show"
+  get "fuel_managers/edit"
 
-  get "equipment/edit"
+  get "fuel_managers/show"
 
-  get "equipment/index"
+  get "fuel_managers/index"
 
   get "sign_in" => "sessions#new", :as => "sign_in"
   get "sign_out" => "sessions#destroy", :as => "sign_out"
@@ -28,13 +28,6 @@ Kelly::Application.routes.draw do
 
   get "supervisors/index"
 
-  get "equipments/new"
-
-  get "equipments/show"
-
-  get "equipments/edit"
-
-  get "equipment/index"
 
   get "drivers/new"
 
@@ -52,12 +45,14 @@ Kelly::Application.routes.draw do
 
 
   resources :managers
+  resources :fuel_managers
   resources :drivers
   resources :supervisors
   resources :fuels
   resources :equipment
 
   resources :sessions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,27 @@
+:javascript
+  $(document).ready(function() {
+    $("#splitterContainer").splitter({minAsize:150,maxAsize:250,splitVertical:true,A:$('#leftPane'),B:$('#rightPane'),slave:$("#rightSplitterContainer"),closeableto:0});
+  });
+%body
+  #header
+    = image_tag "logo.png"
+    .right
+      =  "hi #{@manager.user_name} | "
+      = link_to "sign out", sign_out_path
+  #splitterContainer
+    #leftPane
+      #notice
+        %p
+          Notices are displayed here!
+      %p &nbsp;
+    / #leftPane
+    -#.splitbarV
+    #rightPane
+      #rightSplitterContainer{:style => "height:95%"}
+        .nav
+          = link_to "People", drivers_path
+          = link_to "Clients", drivers_path
+          = link_to "Inventory", drivers_path
+          = link_to "Projects", drivers_path
+          = link_to "Analytics", drivers_path
+        #rightTopPane

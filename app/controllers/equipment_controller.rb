@@ -33,7 +33,7 @@ class EquipmentController < ApplicationController
 
     if @equipment.update_attributes(params[:equipment])
       flash[:success] = "Your details have been updated"
-      redirect_to @member
+      redirect_to @equipment
     else
       @title = "Edit equipment"
       render "edit"
