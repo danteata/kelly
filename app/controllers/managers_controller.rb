@@ -2,7 +2,9 @@ class ManagersController < ApplicationController
 
   def new
     @manager = Manager.new
-    @profile = @manager.profile ||= Profile.new
+    @manager.build_profile #create new instance of nested has_one profile 
+    @manager.build_contact #create new instance of nested has_one contact
+    @manager.build_image #create new instance of nested has_one image
   end
 
   def show
@@ -29,7 +31,7 @@ class ManagersController < ApplicationController
 
   def create
 
-    params[:manager][:user_name]= params[:member][:user_name].downcase.capitalize#change casing to lower case before save. 
+    params[:manager][:profile_attributes][:fName]= params[:manager][:profile_attributes][:fName].downcase.capitalize#change casing to lower case before save. 
     @manager = Manager.new(params[:manager])
 
     if @manager.save

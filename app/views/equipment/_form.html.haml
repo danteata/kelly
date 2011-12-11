@@ -1,0 +1,40 @@
+=form_for(@equipment, :html => { :multipart => true }, :validate => true) do |f| 
+  - if @equipment.errors.any?
+    .error_messages
+      %ul
+        - for message in @equipment.errors.full_messages
+          %li
+            = message
+  %br
+  .field
+    = f.label :asset_code
+    = f.text_field :asset_code
+  %br
+  .field
+    = f.label :asset_subclass
+    = f.text_field :asset_subclass
+  %br
+  .field
+    = f.label :description
+    = f.text_field :description
+  %br
+  .field
+    = f.label :product_pin
+    = f.text_field :product_pin
+  %br
+  .field
+    = f.label :model
+    = f.text_field :model
+  %br
+  .field
+    = f.label :registr
+    = f.text_field :model
+  %br
+  .field
+    = f.label :num_of_tyres
+    = f.text_field :num_of_tyres
+
+
+  %br
+  .field
+    = f.submit "Create" 

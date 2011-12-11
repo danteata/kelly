@@ -1,5 +1,17 @@
 Kelly::Application.routes.draw do
 
+  get "equipment/new"
+
+  get "equipment/show"
+
+  get "equipment/edit"
+
+  get "equipment/index"
+
+  get "sign_in" => "sessions#new", :as => "sign_in"
+  get "sign_out" => "sessions#destroy", :as => "sign_out"
+  get "sessions/new"
+
   get "profiles/new"
 
   get "profiles/show"
@@ -22,7 +34,7 @@ Kelly::Application.routes.draw do
 
   get "equipments/edit"
 
-  get "equipments/index"
+  get "equipment/index"
 
   get "drivers/new"
 
@@ -38,8 +50,14 @@ Kelly::Application.routes.draw do
 
   get "managers/edit"
 
+
   resources :managers
   resources :drivers
+  resources :supervisors
+  resources :fuels
+  resources :equipment
+
+  resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

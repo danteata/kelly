@@ -2,7 +2,12 @@ class DriversController < ApplicationController
 
   def new
     @driver = Driver.new
-    @profile = @driver.profile ||= Profile.new
+    @driver.build_profile
+    @driver.build_contact
+    @driver.build_image
+    #@driver.contact.build
+    #@driver.image.build
+    #@profile = @driver.profile ||= Profile.new
   end
 
   def show
@@ -29,10 +34,15 @@ class DriversController < ApplicationController
 
   def create
 
-    params[:driver][:user_name]= params[:member][:user_name].downcase.capitalize#change casing to lower case before save. 
+    #params[:driver][:user_name]= params[:driver][:user_name].downcase.capitalize#change casing to lower case before save. 
+    #@driver = Driver.new
+    #@driver.profile = params[:driver][:profile]
+    #@driver.contact = params[:driver][:contact]
+    #@driver.image = params[:driver][:image]
     @driver = Driver.new(params[:driver])
 
     if @driver.save
+      logger.debug "Driver should have a name #{@driver.profile.valid?}"
       flash[:success] = "New driver created"
       redirect_to @driver
     else

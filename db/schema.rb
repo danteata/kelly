@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208111607) do
+ActiveRecord::Schema.define(:version => 20111210234545) do
 
   create_table "contacts", :force => true do |t|
     t.string   "phone"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20111208111607) do
 
   create_table "supervisors", :force => true do |t|
     t.string   "user_name"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

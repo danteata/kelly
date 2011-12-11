@@ -1,0 +1,9 @@
+%p
+  = @supervisor.profile.fName
+  %br
+%p
+  = @supervisor.contact.email
+  %br
+%p
+  =image_tag @supervisor.image.file.url(:thumb)
+  %br

@@ -32,6 +32,7 @@ GEM
     annotate (2.4.0)
     ansi (1.4.1)
     arel (2.2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cocaine (0.2.0)
     coffee-rails (3.1.1)
@@ -51,6 +52,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     hike (1.2.1)
+    hirb (0.5.0)
     i18n (0.6.0)
     jquery-rails (1.0.19)
       railties (~> 3.0)
@@ -124,9 +126,11 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt-ruby
   coffee-rails (~> 3.1.1)
   haml
   haml-rails
+  hirb
   jquery-rails
   paperclip
   pg

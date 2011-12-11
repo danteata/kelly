@@ -1,0 +1,38 @@
+=form_for(@driver, :html => { :multipart => true }, :validate => true) do |f| 
+
+  %br
+  .field
+    = f.fields_for :profile do |prof_builder| 
+      = prof_builder.label :fName 
+      = prof_builder.text_field :fName 
+
+      %br
+      = prof_builder.label :oName 
+      = prof_builder.text_field :oName 
+
+      %br
+      = prof_builder.label :lName 
+      = prof_builder.text_field :lName 
+
+  %br
+  .field
+    = f.fields_for :contact do |contact_builder| 
+      = contact_builder.label :email 
+      = contact_builder.text_field :email 
+
+      %br
+      = contact_builder.label :phone
+      = contact_builder.text_field :phone
+
+      %br
+      = contact_builder.label :home 
+      = contact_builder.text_field :home 
+
+  %br
+  .field
+    = f.fields_for :image do |image_builder| 
+      = image_builder.label :file 
+      = image_builder.file_field :file 
+
+  .field
+    = f.submit "Register" 

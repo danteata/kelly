@@ -1,0 +1,61 @@
+=form_for(@supervisor, :html => { :multipart => true }, :validate => true) do |f| 
+  - if @supervisor.errors.any?
+    .error_messages
+      %ul
+        - for message in @supervisor.errors.full_messages
+          %li
+            = message
+  %br
+  .field
+    = f.fields_for :profile do |profile_builder| 
+      =profile_builder.label :fName 
+      = profile_builder.text_field :fName 
+
+      %br
+      = profile_builder.label :oName 
+      = profile_builder.text_field :oName 
+
+      %br
+      = profile_builder.label :lName 
+      = profile_builder.text_field :lName 
+
+  %div
+
+  %br
+  .field
+    = f.label :user_name 
+    = f.text_field :user_name 
+
+  %br
+  .field
+    = f.label :password 
+    = f.password_field :password
+
+  %br
+  .field
+    = f.label :password_confirmation 
+    = f.password_field :password_confirmation
+
+  %br
+  .field
+    = f.fields_for :image do |image_builder| 
+      = image_builder.label :file 
+      = image_builder.file_field :file 
+
+  %br
+  .field
+    = f.fields_for :contact do |contact_builder| 
+      =contact_builder.label :email 
+      = contact_builder.text_field :email 
+
+      %br
+      = contact_builder.label :phone
+      = contact_builder.text_field :phone
+
+      %br
+      = contact_builder.label :home 
+      = contact_builder.text_field :home 
+
+  %br
+  .field
+    = f.submit "Register" 

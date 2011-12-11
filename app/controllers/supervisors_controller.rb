@@ -1,7 +1,9 @@
 class SupervisorsController < ApplicationController
   def new
-    @supervisor = supervisor.new
-    @profile = @supervisor.profile ||= Profile.new
+    @supervisor = Supervisor.new
+    @supervisor.build_profile
+    @supervisor.build_contact
+    @supervisor.build_image
   end
 
   def show
@@ -28,7 +30,7 @@ class SupervisorsController < ApplicationController
 
   def create
 
-    params[:supervisor][:user_name]= params[:member][:user_name].downcase.capitalize#change casing to lower case before save. 
+    #params[:supervisor][:user_name]= params[:member][:user_name].downcase.capitalize#change casing to lower case before save. 
     @supervisor = Supervisor.new(params[:supervisor])
 
     if @supervisor.save
