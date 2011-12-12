@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2011-12-12
+  driver_id: 1
+  equipment_id: 1
+  supervisor_id: 1
+  location: MyString
+  purpose: MyText
+  time_out: 2011-12-12 23:09:05
+  time_in: 2011-12-12 23:09:05
+
+two:
+  date: 2011-12-12
+  driver_id: 1
+  equipment_id: 1
+  supervisor_id: 1
+  location: MyString
+  purpose: MyText
+  time_out: 2011-12-12 23:09:05
+  time_in: 2011-12-12 23:09:05
