@@ -1,0 +1,22 @@
+=form_for(@fuel, :html => { :multipart => true }, :validate => true) do |f| 
+  - if @fuel.errors.any?
+    .error_messages
+      %ul
+        - for message in @fuel.errors.full_messages
+          %li
+            = message
+  %br
+  .field
+    = f.label :name
+    = f.text_field :name
+  %br
+  .field
+    = f.label :total_qty
+    = f.text_field :total_qty
+  %br
+  .field
+    = f.label :price_per_litre
+    = f.text_field :price_per_litre
+  %br
+  .field
+    = f.submit "Create Fuel" 

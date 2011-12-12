@@ -1,0 +1,38 @@
+=form_for(@intake, :html => { :multipart => true }, :validate => true) do |f| 
+  - if @intake.errors.any?
+    .error_messages
+      %ul
+        - for message in @intake.errors.full_messages
+          %li
+            = message
+  %br
+  .field
+    = f.label :employee_token, "Employee Name"
+    = f.text_field :employee_token
+  %br
+  .field
+    = f.label :equipment_token, "Equipment"
+    = f.text_field :equipment_token
+  %br
+  .field
+    = f.label :fuel_token, "Fuel Type"
+    = f.text_field :fuel_token
+  %br
+  .field
+    = f.label :quantity
+    = f.text_field :quantity
+  %br
+  .field
+    = f.label :location
+    = f.text_field :location
+  %br
+  .field
+    = f.label :distance_covered
+    = f.text_field :distance_covered
+  %br
+  .field
+    = f.label :price_per_litre
+    = f.text_field :price_per_litre
+  %br
+  .field
+    = f.submit "Create" 

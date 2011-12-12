@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fuel_id: 1
+  quantity: 9.99
+  price_per_litre: 9.99
+  distance_covered: 1
+  equipment_id: 1
+  employee_id: 1
+
+two:
+  fuel_id: 1
+  quantity: 9.99
+  price_per_litre: 9.99
+  distance_covered: 1
+  equipment_id: 1
+  employee_id: 1

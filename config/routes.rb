@@ -1,5 +1,29 @@
 Kelly::Application.routes.draw do
 
+  get "fuel_intakes/new"
+
+  get "fuel_intakes/index"
+
+  get "fuel_intakes/edit"
+
+  get "fuel_intakes/show"
+
+  get "fuel_refills/new"
+
+  get "fuel_refills/index"
+
+  get "fuel_refills/edit"
+
+  get "fuel_refills/show"
+
+  get "fuels/new"
+
+  get "fuels/edit"
+
+  get "fuels/show"
+
+  get "fuels/index"
+
   get "fuel_managers/new"
 
   get "fuel_managers/edit"
@@ -50,6 +74,8 @@ Kelly::Application.routes.draw do
   resources :supervisors
   resources :fuels
   resources :equipment
+  resources :fuel_intakes
+  resources :fuel_refills
 
   resources :sessions
 

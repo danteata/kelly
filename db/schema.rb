@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211214335) do
+ActiveRecord::Schema.define(:version => 20111212001611) do
 
   create_table "contacts", :force => true do |t|
     t.string   "phone"
@@ -42,9 +42,37 @@ ActiveRecord::Schema.define(:version => 20111211214335) do
     t.datetime "updated_at"
   end
 
+  create_table "fuel_intakes", :force => true do |t|
+    t.integer  "fuel_id"
+    t.decimal  "quantity"
+    t.decimal  "price_per_litre"
+    t.integer  "distance_covered"
+    t.integer  "equipment_id"
+    t.integer  "employee_id"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "fuel_managers", :force => true do |t|
     t.string   "user_name"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fuel_refills", :force => true do |t|
+    t.integer  "fuel_id"
+    t.decimal  "quantity"
+    t.decimal  "price_per_litre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fuels", :force => true do |t|
+    t.string   "name"
+    t.integer  "total_qty",       :default => 0, :null => false
+    t.integer  "price_per_litre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

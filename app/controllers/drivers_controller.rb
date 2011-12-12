@@ -55,6 +55,13 @@ class DriversController < ApplicationController
   end
 
   def index
+    #@drivers = Driver.all
+    @drivers = Driver.includes(:profile).where("profiles.fName like ?", "#{params[:q]}%")
+    #@drivers = Driver.find(:all, :include => :profile, :conditions => ['profiles.fName LIKE ?', "%#{params[:q]}%"])
+    respond_to do |format|
+      format.html
+      format.json{render :json => @drivers.collect{|driver|{:id=>driver.id, :name=>driver.profile.fName}}}
+    end
   end
 
 end
