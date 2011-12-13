@@ -5,14 +5,12 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem "annotate"
 gem "haml"
 gem "haml-rails"
 gem "paperclip"
 gem "bcrypt-ruby"
 
-gem "pg"
 
 gem "hirb"
 
@@ -38,7 +36,12 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :test, :development do
   # Pretty printed test output
+  gem 'sqlite3'
   gem 'turn', '0.8.2', :require => false
+end
+
+group :production do
+  gem "pg" 
 end
