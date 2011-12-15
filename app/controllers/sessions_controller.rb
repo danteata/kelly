@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
 
     contact = Contact.find_by_email params[:email]
-    
+
     #if contact.contactable_type = "Manager"
       #contactable = Manager.find(contact.contactable_id)
     #else if contact.contactable_type = "Supervisor"

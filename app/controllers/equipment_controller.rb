@@ -42,7 +42,7 @@ class EquipmentController < ApplicationController
 
   def index
     #@equipments = Equipment.all
-    @equipments = Equipment.where("registration_no like ?", "#{params[:q]}%")
+    @equipment = Equipment.where("registration_no like ?", "#{params[:q]}%")
     respond_to do |format|
       format.html
       format.json{render :json => @equipments.collect{|equipment|{:id=>equipment.id, :name=>equipment.registration_no}}}

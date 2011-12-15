@@ -1,5 +1,10 @@
 Kelly::Application.routes.draw do
 
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get "fuel_intakes/new"
 
   get "fuel_intakes/index"
@@ -66,7 +71,6 @@ Kelly::Application.routes.draw do
   get "managers/show"
 
   get "managers/edit"
-
 
   resources :managers
   resources :fuel_managers

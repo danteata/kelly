@@ -1,4 +1,99 @@
-%h1
-  Drivers#index
-%p
-  TODO:display list of drivers
+:javascript
+  $(document).ready(function() {
+    $("#splitterContainer").splitter({minAsize:120,maxAsize:250,splitVertical:true,A:$('#leftPane'),B:$('#rightPane'),slave:$("#rightSplitterContainer"),closeableto:0});
+  });
+%body
+  #header
+    = image_tag "logo.png"
+    .right
+      =  "hi manager | "
+      = link_to "sign out", sign_out_path
+  #splitterContainer
+    #leftPane{:style =>"width:238px"}
+      #notice
+        #sidebar
+          / Box
+          .box
+            / Box Head
+            .box-head
+              %h2 Quick Tasks
+            / End Box Head
+            .box-content
+              %a.add-button{:href => "#"}
+                %span Add new Employee
+              %br
+              %a.add-button{:href => "#"}
+                %span Add new Equipment
+              .cl &nbsp;
+              %p.select-all
+                %input.checkbox{:type => "checkbox"}/
+                %label select all
+              %p
+                %a{:href => "#"} Delete Selected
+              / Sort
+              .sort
+                %label Sort by
+                %select.field
+                  %option{:value => ""} Title
+                %select.field
+                  %option{:value => ""} Date
+                %select.field
+                  %option{:value => ""} Me toos
+              / End Sort
+          / End Box
+        / End Sidebar
+
+        #sidebar
+          / Box
+          .box
+            / Box Head
+            .box-head
+              %h2 Notifications
+            / End Box Head
+            .box-content
+              %a.add-button{:href => "#"}
+                %span No Notifications
+              / End Sort
+          / End Box
+      %p &nbsp;
+    / #leftPane
+    -#.splitbarV
+    #rightPane
+      #rightSplitterContainer{:style => "height:95%"}
+        .nav
+          = link_to "People", drivers_path
+          = link_to "Clients", drivers_path
+          = link_to "Inventory", drivers_path
+          = link_to "Projects", drivers_path
+          = link_to "Analytics", drivers_path
+        #rightTopPane
+          / Content
+          #content
+            / Box
+            .box
+              / Box Head
+              .box-head
+                %h2.left Employees
+                .right
+                  %label search employee
+                  %input.field.small-field{:type => "text"}/
+                  %input.button{:type => "submit", :value => "search"}/
+              / End Box Head
+              / Table
+              .table
+                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                  %tr
+                    %th{:width => "13"}
+                      %input.checkbox{:type => "checkbox"}/
+                    %th Name
+                    %th Email
+                    %th Photo
+                    %th.ac{:width => "110"} Content Control
+                  #drivers
+                    - unless @drivers.blank?
+                      = render "drivers"
+                      -#%a{:href => "#"} View all
+                / End Pagging
+              / Table
+            / End Box
+            / Box

@@ -1,0 +1,10 @@
+= render @drivers
+/ Pagging
+-#.pagination
+-#.left 
+  -#- @from = params[:page]
+  -#= "Showing #{@from}-#{@to} of #{@drivers.count}"
+.right
+  = will_paginate @drivers
+  -#%a{:href => "#"} View all
+/ End Pagging

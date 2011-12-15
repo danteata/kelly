@@ -6,7 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./models
+//= require_tree ./shared
+//= require_tree ./third-party
 $(function() {
   $("#fuel_intake_fuel_token").tokenInput("/fuels.json", {
       prePopulate: $("#fuel_intake_fuel_token").data("pre"),

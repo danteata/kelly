@@ -1,0 +1,15 @@
+%tr
+  %td
+    %input.checkbox{:type => "checkbox"}/
+  %td
+    %h3
+      %a{:href => "#"}
+        = "#{driver.profile.fName} #{driver.profile.oName} #{driver.profile.lName}"
+  %td 
+    = driver.contact.email
+  %td
+    %a{:href => "#"} 
+      =image_tag driver.image.file.url(:thumb)
+  %td
+    %a.ico.del{:href => "#"} Delete
+    %a.ico.edit{:href => "#"} Edit

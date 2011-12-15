@@ -1,0 +1,5 @@
+jQuery ->
+  $(".pagination a").live "click", ->
+    $("#drivers").html('<%= image_tag "loading-machine.gif" %>')
+    $.getScript(@href)
+    return false <%#prevents browser from performing default action%> 

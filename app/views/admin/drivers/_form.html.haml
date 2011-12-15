@@ -1,8 +1,9 @@
-=semantic_form_for(@driver, :html => { :multipart => true }, :validate => true) do |f| 
+=semantic_form_for(@driver, :as => :name, :html => { :multipart => true }, :validate => true) do |f| 
   %br
   .field
+    - @driver.build_profile
     = f.semantic_fields_for :profile do |prof_builder| 
-      = prof_builder.inputs do
+      = prof_builder.inputs "Profile" do
         %br
         .field
           = prof_builder.input :fName 
@@ -14,8 +15,9 @@
           = prof_builder.input :lName 
   %br
   .field
+    - @driver.build_contact
     = f.semantic_fields_for :contact do |contact_builder| 
-      = contact_builder.inputs do
+      = contact_builder.inputs "Contact and Location" do
         %br
         .field
           = contact_builder.input :email
@@ -27,6 +29,7 @@
           = contact_builder.input :home
   %br
   .field
+    - @driver.build_image
     = f.semantic_fields_for :image do |image_builder| 
       = image_builder.inputs do 
         %br
@@ -35,4 +38,4 @@
 
   .field 
     = f.buttons do
-      = f.commit_button "Register" 
+      = f.commit_button "Add Driver" 

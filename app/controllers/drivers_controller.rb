@@ -24,7 +24,7 @@ class DriversController < ApplicationController
 
     if @driver.update_attributes(params[:driver])
       flash[:success] = "Your details have been updated"
-      redirect_to @member
+      redirect_to @driver
     else
       @title = "Edit driver"
       render "edit"
@@ -56,7 +56,7 @@ class DriversController < ApplicationController
 
   def index
     #@drivers = Driver.all
-    @drivers = Driver.includes(:profile).where("profiles.fName like ?", "#{params[:q]}%")
+    @drivers = Driver.includes(:profile).where("profiles.fName like ?", "#{params[:q]}%").paginate(:page => params[:page], :per_page => 3)
     #@drivers = Driver.find(:all, :include => :profile, :conditions => ['profiles.fName LIKE ?', "%#{params[:q]}%"])
     respond_to do |format|
       format.html

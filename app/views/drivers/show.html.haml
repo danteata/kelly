@@ -1,9 +1,1 @@
-%p
-  = @driver.profile.fName
-  %br
-%p
-  = @driver.contact.email
-  %br
-%p
-  =image_tag @driver.image.file.url(:thumb)
-  %br
+= render @driver
