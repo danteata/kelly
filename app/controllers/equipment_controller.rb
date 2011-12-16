@@ -45,7 +45,7 @@ class EquipmentController < ApplicationController
     @equipment = Equipment.where("registration_no like ?", "#{params[:q]}%")
     respond_to do |format|
       format.html
-      format.json{render :json => @equipments.collect{|equipment|{:id=>equipment.id, :name=>equipment.registration_no}}}
+      format.json{render :json => @equipment.collect{|equipment|{:id=>equipment.id, :name=>equipment.registration_no}}}
     end
 
   end

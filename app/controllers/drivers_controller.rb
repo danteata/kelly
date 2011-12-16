@@ -41,6 +41,10 @@ class DriversController < ApplicationController
     #@driver.image = params[:driver][:image]
     @driver = Driver.new(params[:driver])
 
+    @driver.build_profile unless @driver.profile
+    @driver.build_contact unless @driver.contact
+    @driver.build_image unless @driver.image
+
     if @driver.save
       logger.debug "Driver should have a name #{@driver.profile.valid?}"
       flash[:success] = "New driver created"

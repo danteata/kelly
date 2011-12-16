@@ -15,6 +15,7 @@ gem 'meta_search', '>= 1.1.0.pre'
 gem 'activeadmin'
 gem 'kaminari'
 gem "formtastic"
+gem 'cancan'
 
 
 gem "hirb"

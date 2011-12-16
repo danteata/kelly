@@ -16,5 +16,5 @@ ActiveAdmin.register Driver do
       create!
     end
   end
-  form :partial => "form"
+  #form :partial => "form"
 end

@@ -3,6 +3,7 @@ class Supervisor < ActiveRecord::Base
   has_one :profile, :as => :profileable
   has_one :contact, :as => :contactable
   has_one :image, :as => :imageable
+  has_many :activities
 
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :contact
