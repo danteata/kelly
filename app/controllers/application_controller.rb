@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user  #returns the current user if not nil 
+      return @current_user
+    else
+      user_type = session[:user_type] if session[:user_type]
+      user_class = user_type.classify.constantize
+      @current_user = user_class.find(session[:user_id]) if session[:user_id]
+
+    #@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
   end
 
   def find_profileable

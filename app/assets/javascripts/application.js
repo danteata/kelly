@@ -25,4 +25,19 @@ $(function() {
       tokenLimit: 1,
       theme: "facebook"
     });
+  $("#activity_equipment_token").tokenInput("/equipment.json", {
+      prePopulate: $("#activity_equipment_token").data("pre"),
+      tokenLimit: 1,
+      theme: "facebook"
+    });
+  $("#activity_employee_token").tokenInput("/drivers.json", {
+      prePopulate: $("#activity_employee_token").data("pre"),
+      tokenLimit: 1,
+      theme: "facebook"
+    });
+  $("#activity_supervisor_token").tokenInput("/drivers.json", {
+      prePopulate: $("#activity_employee_token").data("pre"),
+      tokenLimit: 1,
+      theme: "facebook"
+    });
 });

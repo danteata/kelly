@@ -14,10 +14,11 @@ class SessionsController < ApplicationController
       #contactable = Supervisor.find(contact.contactable_id)
     #end
 
-    contactable = find_contactable contact unless contact.nil?
+    contactable = find_contactable contact unless contact.nil? #find the person having that contact 
 
     if contactable and contactable.authenticate (params[:password]) # authenticated?
       session[:user_id] = contactable.id
+      session[:user_type] = contact.contactable_type
       redirect_to contactable
     else
       flash.now.alert = "invalid email or password"
@@ -27,7 +28,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+     #set sessions to nil 
     session[:user_id] = nil
+    session[:user_type] = nil
     redirect_to root_path
 
   end

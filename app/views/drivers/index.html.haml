@@ -6,7 +6,7 @@
   #header
     = image_tag "logo.png"
     .right
-      =  "hi manager | "
+      =  "hi #{current_user.user_name} | "
       = link_to "sign out", sign_out_path
   #splitterContainer
     #leftPane{:style =>"width:238px"}

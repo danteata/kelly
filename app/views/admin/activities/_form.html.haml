@@ -1,0 +1,30 @@
+=semantic_form_for(@activity, :html => { :multipart => true }, :validate => true) do |f| 
+  - if @activity.errors.any?
+    .error_messages
+      %ul
+        - for message in @activity.errors.full_messages
+          %li
+            = message
+  = f.inputs do
+    %br
+    .field
+      = f.input :employee_token,:label => "Employee Name"
+    %br
+    .field
+      = f.input :equipment_token,:label => "Equipment Name"
+    %br
+    .field
+      = f.input :supervisor_token,:label => "Supervisor Name"
+    %br
+    .field
+      = f.input :date
+    %br
+    .field
+      = f.input :location, :label => "Location"
+    %br
+    .field
+      = f.input :purpose,:as => :text
+
+  .field 
+    = f.buttons do
+      = f.commit_button "Record" 

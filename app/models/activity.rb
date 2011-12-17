@@ -16,7 +16,7 @@ class Activity < ActiveRecord::Base
   end
 
   def supervisor_token=(id)
-    self.equipment_id = id
+    self.supervisor_id = id
   end
 
 end
