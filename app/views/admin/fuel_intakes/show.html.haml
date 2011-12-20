@@ -7,9 +7,40 @@
         %tbody
           %tr
             %th
+              ID
+            %td
+              = best_in_place @intake, :id, :path =>[:admin, @intake]
+          %tr
+            %th
+              Employee
+            %td
+              = best_in_place @intake, :employee, :path =>[:admin, @intake]
+          %tr
+            %th
+              Equipment
+            %td
+              = best_in_place @intake, :equipment, :path =>[:admin, @intake]
+          %tr
+            %th
+              Fuel Type
+            %td
+              = best_in_place @intake, :fuel, :path =>[:admin, @intake]
+          %tr
+            %th
               Quantity
             %td
               = best_in_place @intake, :quantity, :path =>[:admin, @intake]
+          %tr
+            %th
+              Price Per Litre
+            %td
+              = best_in_place @intake, :price_per_litre, :path =>[:admin, @intake]
+          %tr
+            %th
+              Distance Covered
+            %td
+              = best_in_place @intake, :distance_covered, :path =>[:admin, @intake]
+          %tr
             %th
               Location
             %td
