@@ -1,20 +1,21 @@
 ActiveAdmin.register Driver do
 
-  menu :parent => "Employees"
+  menu :parent => "Employees", :priority => 1
   controller do
+    #layout "active_admin"
     def new
       @driver = Driver.new
-      @driver.build_profile
-      @driver.build_contact
-      @driver.build_image
+      @new_profile = @driver.build_profile
+      @new_contact = @driver.build_contact
+      @new_image = @driver.build_image
       new!
     end
 
     def create
       @driver = Driver.new params[:driver]
-      #@driver.build_profile unless @driver.profile
-      create!
+      ##@driver.build_profile unless @driver.profile
+      #create!
     end
   end
-  #form :partial => "form"
+  form :partial => "form"
 end

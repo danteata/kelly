@@ -1,4 +1,4 @@
-=semantic_form_for(@driver, :as => :name, :html => { :multipart => true }, :validate => true) do |f| 
+=semantic_form_for([:admin, @driver], :as => :name, :html => { :multipart => true }, :validate => true) do |f| 
   -logger.debug "Driver should not be nil #{!@driver.nil?}"
   %br
   .field
@@ -13,10 +13,11 @@
         %br
         .field
           = prof_builder.input :lName 
+    -logger.debug "Driver should have a profile #{!@driver.profile.fName.nil?}"
   %br
   .field
     = f.semantic_fields_for :contact do |contact_builder| 
-      = contact_builder.inputs "Contact and Location" do
+      = contact_builder.inputs "Contact Details" do
         %br
         .field
           = contact_builder.input :email

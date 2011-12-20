@@ -40,10 +40,13 @@ class DriversController < ApplicationController
     #@driver.contact = params[:driver][:contact]
     #@driver.image = params[:driver][:image]
     @driver = Driver.new(params[:driver])
+    #@new_profile.save
+    #@new_contact.save
+    #@new_image.save
 
-    @driver.build_profile unless @driver.profile
-    @driver.build_contact unless @driver.contact
-    @driver.build_image unless @driver.image
+    #@driver.build_profile unless @driver.profile
+    #@driver.build_contact unless @driver.contact
+    #@driver.build_image unless @driver.image
 
     if @driver.save
       logger.debug "Driver should have a name #{@driver.profile.valid?}"
@@ -64,7 +67,8 @@ class DriversController < ApplicationController
     #@drivers = Driver.find(:all, :include => :profile, :conditions => ['profiles.fName LIKE ?', "%#{params[:q]}%"])
     respond_to do |format|
       format.html
-      format.json{render :json => @drivers.collect{|driver|{:id=>driver.id, :name=>driver.profile.fName}}}
+      #format.json{render :json => @drivers.collect{|driver|{:id=>driver.id, :name=>driver.profile.fName}}}
+      format.json{render :json => @drivers.collect{|driver|{:id=>driver.id, :name=>driver.profile.full_name}}}
     end
   end
 
