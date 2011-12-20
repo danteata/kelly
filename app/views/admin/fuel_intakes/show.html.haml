@@ -14,7 +14,7 @@
             %th
               Employee
             %td
-              = best_in_place @intake, :employee, :path =>[:admin, @intake]
+              = best_in_place @intake, :employee {|intake| link_to intake.employee, admin_fuel_intake_path}, :path =>[:admin, @intake]
           %tr
             %th
               Equipment

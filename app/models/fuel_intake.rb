@@ -1,4 +1,5 @@
 class FuelIntake < ActiveRecord::Base
+  scope :over_five_hundred, where("distance_covered > 500")
   belongs_to :fuel
   belongs_to :equipment
   belongs_to :employee, :class_name => "Driver"

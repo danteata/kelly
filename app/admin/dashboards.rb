@@ -7,12 +7,29 @@ ActiveAdmin::Dashboards.build do
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
   #
-     section "Recent Fuel Intakes" do
-       ul do
-         FuelIntake.all.collect do |post|
-           li post.id
+     #section "Recent Fuel Intakes" do
+       #ul do
+         #FuelIntake.all.collect do |post|
+           #li post.id
+         #end
+       #end
+     #end
+
+     section "Recent Fuel Logs" do
+       table_for FuelIntake.order("created_at desc").limit(5) do
+         #column :driver do |fuel_intake|
+           #link_to fuel_intake.driver, [:admin, fuel_intake]
+         #end
+         column :quantity
+         column :distance_covered
+         column :location
+         column :price_per_litre
+         column :total_price do |fuel_intake|
+           total_price = fuel_intake.quantity * fuel_intake.price_per_litre
+           number_to_currency total_price
          end
        end
+       strong {link_to "View all fuel logs", admin_fuel_intakes_path}
      end
   
   # == Render Partial Section
