@@ -17,9 +17,12 @@ ActiveAdmin::Dashboards.build do
 
      section "Recent Fuel Logs" do
        table_for FuelIntake.order("created_at desc").limit(5) do
-         #column :driver do |fuel_intake|
-           #link_to fuel_intake.driver, [:admin, fuel_intake]
+         #column :employee do |fuel_intake|
+           #link_to fuel_intake.employee, "#"
          #end
+         column :employee
+         column :equipment
+         column :fuel
          column :quantity
          column :distance_covered
          column :location
