@@ -3,6 +3,8 @@
 
 $(function() {
   jQuery.noConflict();
+  //$j = jQuery.noConflict();
+  $(".best_in_place").best_in_place();
   $("#fuel_intake_fuel_token").tokenInput("/fuels.json", {
       prePopulate: $("#fuel_intake_fuel_token").data("pre"),
       tokenLimit: 1,

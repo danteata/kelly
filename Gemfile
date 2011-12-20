@@ -16,6 +16,7 @@ gem 'activeadmin'
 gem 'kaminari'
 gem "formtastic"
 gem 'cancan'
+gem "best_in_place"
 
 
 gem "hirb"

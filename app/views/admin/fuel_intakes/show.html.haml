@@ -1,0 +1,16 @@
+.panel
+  %h3 
+    Fuel Intake
+  .panel_contents
+    .attributes_table
+      %table
+        %tbody
+          %tr
+            %th
+              Quantity
+            %td
+              = best_in_place @intake, :quantity, :path =>[:admin, @intake]
+            %th
+              Location
+            %td
+              = best_in_place @intake, :location, :path =>[:admin, @intake]

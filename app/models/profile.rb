@@ -7,4 +7,8 @@ class Profile < ActiveRecord::Base
     [fName, lName].join " "
   end
 
+  def to_s
+    full_name
+  end
+
 end

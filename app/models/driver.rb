@@ -10,5 +10,9 @@ class Driver < ActiveRecord::Base
   accepts_nested_attributes_for :contact
   accepts_nested_attributes_for :image
 
+  def to_s
+    #profile.to_s
+    id
+  end
 
 end
